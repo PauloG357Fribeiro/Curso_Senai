@@ -54,13 +54,21 @@ public class ClienteService {
 		return obj;
 
 	}
-	//Para Atualizar um Cliente - o método vai se chamar update
+
+	// Para Atualizar um Cliente - o método vai se chamar update
 	public Cliente update(Cliente obj) {
-		//Buscar já criado por nós
+		// Buscar já criado por nós
 		buscar(obj.getIdCliente());
-		//repo é a instancia de ClienteRepository
+		// repo é a instancia de ClienteRepository
 		return repo.save(obj);
-		
+
+	}
+
+	// Para deletar um cliente
+	public void delete(Integer id) {
+		buscar(id);
+		repo.deleteById(id);
+
 	}
 
 }
